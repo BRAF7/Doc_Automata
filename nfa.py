@@ -8,7 +8,7 @@ def nfa_sim(dato, actual, edges, accepting,sigma):
         key = (actual, letter)
         epsilon = False
         if key not in edges:
-            key = (actual, '')
+            key = (actual, 'epsilon')
             epsilon = True
         if key in edges:
             if epsilon:
