@@ -30,3 +30,8 @@ def run_automata_h(automata, letra, posicion):
         current_step = step_automata(automata, posicion, letra[0])
         if current_step == False: return current_step
         return run_automata_h(automata, letra[1:], current_step)
+
+def iniciar_dfa(word,DFA):
+        res = run_automata(word, DFA)
+        if res == False: return res
+        return  res in DFA["F"]

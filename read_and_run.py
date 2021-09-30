@@ -1,5 +1,5 @@
 import ast
-from dfa import run_automata
+from dfa import iniciar_dfa
 from nfa import nfa_sim
 
 def leer(filename):
@@ -54,17 +54,15 @@ def leer(filename):
     }
     return modelado,type_automata
 
-def ejecutar(automata,tipo_automata):
+def ejecutar(automata,tipo_automata,texto):
     if tipo_automata == 'NFA':
         print('Ejecutando NFA')
-        texto = input('Ingrese dato: ')
         res = nfa_sim(texto,automata['q0'],automata['D'],automata['F'],automata['S'])
     elif tipo_automata == 'DFA':
         print('Ejecutando DFA')
-        texto = input('Ingrese dato: ')
-        res = run_automata(texto,automata)
+        res = iniciar_dfa(texto,automata)
     if res:
-        response = 'OK'
+        respuesta = 'OK'
     else:
-        response = 'NO OK'
-    return response
+        respuesta = 'NO OK'
+    return respuesta
